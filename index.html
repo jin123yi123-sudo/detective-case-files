@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<meta name="theme-color" content="#12151c">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="description" content="侦探档案·罪证拼图 —— 手机端侦探搜证推理游戏">
+<title>侦探档案 · 罪证拼图</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="app">
+
+  <!-- ============ 启动页 ============ -->
+  <section class="screen screen--intro is-active" id="screen-intro">
+    <div class="intro-art" id="intro-art"></div>
+    <h1 class="intro-title">侦探档案<span>罪证拼图</span></h1>
+    <p class="intro-sub">在每一个现场，找出别人看不见的那块碎片。</p>
+    <button class="btn btn--primary btn--wide" id="btn-start">开始调查</button>
+    <button class="btn btn--ghost btn--wide" id="btn-continue">继续上次进度</button>
+    <p class="intro-tip">提示：点击场景中可疑之处收集线索，集齐后进入推理。</p>
+  </section>
+
+  <!-- ============ 案件列表 ============ -->
+  <section class="screen screen--cases" id="screen-cases">
+    <header class="topbar">
+      <h2 class="topbar__title">案件卷宗</h2>
+      <div class="topbar__meta" id="cases-progress"></div>
+    </header>
+    <div class="case-list" id="case-list"></div>
+    <footer class="bottombar">
+      <button class="btn btn--ghost" id="btn-reset">清空存档</button>
+    </footer>
+  </section>
+
+  <!-- ============ 案件内（搜证 / 线索 / 推理） ============ -->
+  <section class="screen screen--case" id="screen-case">
+    <header class="topbar">
+      <button class="icon-btn" id="btn-back" aria-label="返回">‹</button>
+      <div class="topbar__center">
+        <h2 class="topbar__title" id="case-title">案件</h2>
+        <div class="topbar__meta" id="case-meta"></div>
+      </div>
+      <button class="icon-btn" id="btn-hint" aria-label="提示">?</button>
+    </header>
+
+    <!-- 场景切换条 -->
+    <nav class="scene-tabs" id="scene-tabs"></nav>
+
+    <!-- 现场搜证 -->
+    <div class="pane pane--active" id="pane-scene">
+      <div class="stage" id="stage"></div>
+      <p class="stage-hint" id="stage-hint">点击可疑之处</p>
+    </div>
+
+    <!-- 线索册 -->
+    <div class="pane" id="pane-clues">
+      <div class="clue-list" id="clue-list"></div>
+    </div>
+
+    <!-- 推理 -->
+    <div class="pane" id="pane-deduce">
+      <div class="deduce" id="deduce"></div>
+    </div>
+
+    <nav class="tabbar">
+      <button class="tab tab--active" data-pane="pane-scene"><span>现场</span></button>
+      <button class="tab" data-pane="pane-clues"><span>线索册</span><i class="badge" id="badge-clue"></i></button>
+      <button class="tab" data-pane="pane-deduce"><span>推理</span><i class="badge badge--lock" id="badge-deduce">锁</i></button>
+    </nav>
+  </section>
+
+  <!-- ============ 弹层 ============ -->
+  <div class="modal" id="modal" hidden>
+    <div class="modal__mask" id="modal-mask"></div>
+    <div class="modal__box" id="modal-box"></div>
+  </div>
+
+  <div class="toast" id="toast" hidden></div>
+</div>
+
+<script src="js/art.js"></script>
+<script src="js/data.js"></script>
+<script src="js/game.js"></script>
+</body>
+</html>
