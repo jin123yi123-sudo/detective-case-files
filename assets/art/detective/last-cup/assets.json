@@ -1,43 +1,72 @@
 {
   "schemaVersion": 1,
   "caseId": "c3",
-  "slug": "last-cup",
-  "name": "最后一杯",
+  "caseName": "最后一杯",
   "basePath": "/assets/art/detective/last-cup",
   "status": "prepared-not-integrated",
-  "assets": {
-    "cover": {
-      "src": "cover.webp",
-      "width": 941,
-      "height": 1672,
-      "alpha": false
+  "cover": {
+    "src": "cover.webp",
+    "width": 941,
+    "height": 1672,
+    "alpha": false
+  },
+  "scenes": [
+    {
+      "src": "scene-01.webp",
+      "width": 1145,
+      "height": 1374,
+      "alpha": false,
+      "id": "s1",
+      "name": "卡座"
     },
-    "scenes": [
-      {
-        "id": "s1",
-        "name": "卡座",
-        "src": "scene-01.webp",
-        "width": 1145,
-        "height": 1374,
-        "alpha": false
-      },
-      {
-        "id": "s2",
-        "name": "后厨",
-        "src": "scene-02.webp",
-        "width": 1145,
-        "height": 1374,
-        "alpha": false
-      }
-    ],
-    "clues": [
-      {
-        "id": "epinephrine-pen",
-        "src": "clue-epinephrine-pen.webp",
-        "width": 512,
-        "height": 512,
-        "alpha": true
-      }
-    ]
-  }
+    {
+      "src": "scene-02.webp",
+      "width": 1145,
+      "height": 1374,
+      "alpha": false,
+      "id": "s2",
+      "name": "后厨"
+    }
+  ],
+  "characters": [
+    {
+      "src": "character-zhou.webp",
+      "width": 768,
+      "height": 1024,
+      "alpha": true,
+      "id": "zhou"
+    }
+  ],
+  "clues": [
+    {
+      "src": "clue-epinephrine-pen.webp",
+      "width": 512,
+      "height": 512,
+      "alpha": true,
+      "id": "k_pen"
+    }
+  ],
+  "missingCharacterIds": [
+    "may",
+    "doctor"
+  ],
+  "missingClueIds": [
+    "k_table",
+    "k_cup1",
+    "k_cup2",
+    "k_cake",
+    "k_phone",
+    "k_bag",
+    "k_card",
+    "x_window",
+    "x_chair",
+    "k_trash",
+    "x_bottle",
+    "k_fridge",
+    "x_sink",
+    "x_knife",
+    "k_pills",
+    "k_diary",
+    "k_mon"
+  ]
 }

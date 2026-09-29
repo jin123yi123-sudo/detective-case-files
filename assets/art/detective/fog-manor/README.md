@@ -1,5 +1,5 @@
-# 雾中庄园美术资源
+# 雾中庄园 — visual assets
 
-封面和 3 个现场背景已准备；文件规格见 `assets.json`。背景为不透明 WebP，标题及线索文字需由游戏运行时叠加。
+Cover, 3 scene backgrounds, one character portrait, and one transparent clue. Generated with the built-in image tool. `assets.json` records actual dimensions, alpha and `js/data.js` IDs.
 
-这些图片尚未接入 `js/art.js` / `js/game.js`。已制作 1 张独立线索图；其余线索单件图、人物立绘及表情、专用 UI 尚未制作。图片中的物件不能代替独立可点击证物；游戏当前仍使用原 SVG 场景。
+Status: prepared, not integrated. Current game art is drawn by `js/art.js`. Missing character and clue IDs are listed in the manifest. Objects painted into scene backgrounds are not separate inventory assets.

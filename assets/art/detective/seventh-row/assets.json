@@ -1,51 +1,81 @@
 {
   "schemaVersion": 1,
   "caseId": "c5",
-  "slug": "seventh-row",
-  "name": "第七排",
+  "caseName": "第七排",
   "basePath": "/assets/art/detective/seventh-row",
   "status": "prepared-not-integrated",
-  "assets": {
-    "cover": {
-      "src": "cover.webp",
-      "width": 941,
-      "height": 1672,
-      "alpha": false
+  "cover": {
+    "src": "cover.webp",
+    "width": 941,
+    "height": 1672,
+    "alpha": false
+  },
+  "scenes": [
+    {
+      "src": "scene-01.webp",
+      "width": 1145,
+      "height": 1374,
+      "alpha": false,
+      "id": "s1",
+      "name": "后台与舞台"
     },
-    "scenes": [
-      {
-        "id": "s1",
-        "name": "后台与舞台",
-        "src": "scene-01.webp",
-        "width": 1145,
-        "height": 1374,
-        "alpha": false
-      },
-      {
-        "id": "s2",
-        "name": "化妆间",
-        "src": "scene-02.webp",
-        "width": 1145,
-        "height": 1374,
-        "alpha": false
-      },
-      {
-        "id": "s3",
-        "name": "观众席第七排",
-        "src": "scene-03.webp",
-        "width": 1024,
-        "height": 1536,
-        "alpha": false
-      }
-    ],
-    "clues": [
-      {
-        "id": "prop-knives",
-        "src": "clue-prop-knives.webp",
-        "width": 512,
-        "height": 512,
-        "alpha": true
-      }
-    ]
-  }
+    {
+      "src": "scene-02.webp",
+      "width": 1145,
+      "height": 1374,
+      "alpha": false,
+      "id": "s2",
+      "name": "化妆间"
+    },
+    {
+      "src": "scene-03.webp",
+      "width": 1024,
+      "height": 1536,
+      "alpha": false,
+      "id": "s3",
+      "name": "观众席第七排"
+    }
+  ],
+  "characters": [
+    {
+      "src": "character-gu.webp",
+      "width": 768,
+      "height": 1024,
+      "alpha": true,
+      "id": "gu"
+    }
+  ],
+  "clues": [
+    {
+      "src": "clue-prop-knives.webp",
+      "width": 512,
+      "height": 512,
+      "alpha": true,
+      "id": "k_knife"
+    }
+  ],
+  "missingCharacterIds": [
+    "tuan",
+    "wu"
+  ],
+  "missingClueIds": [
+    "x_curtain",
+    "k_light",
+    "k_mic",
+    "x_piano",
+    "k_box",
+    "k_key",
+    "k_mirror",
+    "x_mask",
+    "k_letter",
+    "k_bag",
+    "k_cig",
+    "x_ticket",
+    "x_seat",
+    "k_seat",
+    "k_body",
+    "k_ticket",
+    "k_phone",
+    "x_blood"
+  ]
 }

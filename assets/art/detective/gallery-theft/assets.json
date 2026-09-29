@@ -1,43 +1,67 @@
 {
   "schemaVersion": 1,
   "caseId": "c2",
-  "slug": "gallery-theft",
-  "name": "画廊失窃",
+  "caseName": "画廊失窃",
   "basePath": "/assets/art/detective/gallery-theft",
   "status": "prepared-not-integrated",
-  "assets": {
-    "cover": {
-      "src": "cover.webp",
+  "cover": {
+    "src": "cover.webp",
+    "width": 1024,
+    "height": 1536,
+    "alpha": false
+  },
+  "scenes": [
+    {
+      "src": "scene-01.webp",
+      "width": 1122,
+      "height": 1402,
+      "alpha": false,
+      "id": "s1",
+      "name": "主展厅"
+    },
+    {
+      "src": "scene-02.webp",
       "width": 1024,
       "height": 1536,
-      "alpha": false
-    },
-    "scenes": [
-      {
-        "id": "s1",
-        "name": "主展厅",
-        "src": "scene-01.webp",
-        "width": 1122,
-        "height": 1402,
-        "alpha": false
-      },
-      {
-        "id": "s2",
-        "name": "储藏室",
-        "src": "scene-02.webp",
-        "width": 1024,
-        "height": 1536,
-        "alpha": false
-      }
-    ],
-    "clues": [
-      {
-        "id": "empty-frame",
-        "src": "clue-empty-frame.webp",
-        "width": 512,
-        "height": 512,
-        "alpha": true
-      }
-    ]
-  }
+      "alpha": false,
+      "id": "s2",
+      "name": "储藏室"
+    }
+  ],
+  "characters": [
+    {
+      "src": "character-lin.webp",
+      "width": 768,
+      "height": 1024,
+      "alpha": true,
+      "id": "lin"
+    }
+  ],
+  "clues": [
+    {
+      "src": "clue-empty-frame.webp",
+      "width": 512,
+      "height": 512,
+      "alpha": true,
+      "id": "k_frame"
+    }
+  ],
+  "missingCharacterIds": [
+    "bao"
+  ],
+  "missingClueIds": [
+    "k_cam",
+    "k_mon",
+    "k_coffee",
+    "x_vent",
+    "x_statue",
+    "x_rope",
+    "k_powder",
+    "k_crate",
+    "k_glove",
+    "k_lock",
+    "x_shelf",
+    "k_trash",
+    "k_ticket"
+  ]
 }

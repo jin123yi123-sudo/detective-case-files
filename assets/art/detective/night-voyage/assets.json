@@ -1,43 +1,71 @@
 {
   "schemaVersion": 1,
   "caseId": "c4",
-  "slug": "night-voyage",
-  "name": "码头夜航",
+  "caseName": "码头夜航",
   "basePath": "/assets/art/detective/night-voyage",
   "status": "prepared-not-integrated",
-  "assets": {
-    "cover": {
-      "src": "cover.webp",
-      "width": 941,
-      "height": 1672,
-      "alpha": false
+  "cover": {
+    "src": "cover.webp",
+    "width": 941,
+    "height": 1672,
+    "alpha": false
+  },
+  "scenes": [
+    {
+      "src": "scene-01.webp",
+      "width": 1024,
+      "height": 1536,
+      "alpha": false,
+      "id": "s1",
+      "name": "三号泊位"
     },
-    "scenes": [
-      {
-        "id": "s1",
-        "name": "三号泊位",
-        "src": "scene-01.webp",
-        "width": 1024,
-        "height": 1536,
-        "alpha": false
-      },
-      {
-        "id": "s2",
-        "name": "货运仓库",
-        "src": "scene-02.webp",
-        "width": 940,
-        "height": 1672,
-        "alpha": false
-      }
-    ],
-    "clues": [
-      {
-        "id": "cut-rope",
-        "src": "clue-cut-rope.webp",
-        "width": 512,
-        "height": 512,
-        "alpha": true
-      }
-    ]
-  }
+    {
+      "src": "scene-02.webp",
+      "width": 940,
+      "height": 1672,
+      "alpha": false,
+      "id": "s2",
+      "name": "货运仓库"
+    }
+  ],
+  "characters": [
+    {
+      "src": "character-shao.webp",
+      "width": 768,
+      "height": 1024,
+      "alpha": true,
+      "id": "shao"
+    }
+  ],
+  "clues": [
+    {
+      "src": "clue-cut-rope.webp",
+      "width": 512,
+      "height": 512,
+      "alpha": true,
+      "id": "k_rope"
+    }
+  ],
+  "missingCharacterIds": [
+    "k",
+    "hai"
+  ],
+  "missingClueIds": [
+    "x_con1",
+    "x_con2",
+    "k_boat",
+    "k_net",
+    "k_tide",
+    "k_foot",
+    "x_crate",
+    "x_anchor",
+    "k_locker",
+    "k_case",
+    "k_mon",
+    "k_phone",
+    "k_lock",
+    "k_cable",
+    "x_barrel",
+    "k_form"
+  ]
 }

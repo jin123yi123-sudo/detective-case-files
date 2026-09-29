@@ -1,51 +1,83 @@
 {
   "schemaVersion": 1,
   "caseId": "c6",
-  "slug": "fog-manor",
-  "name": "雾中庄园",
+  "caseName": "雾中庄园",
   "basePath": "/assets/art/detective/fog-manor",
   "status": "prepared-not-integrated",
-  "assets": {
-    "cover": {
-      "src": "cover.webp",
+  "cover": {
+    "src": "cover.webp",
+    "width": 941,
+    "height": 1672,
+    "alpha": false
+  },
+  "scenes": [
+    {
+      "src": "scene-01.webp",
+      "width": 1024,
+      "height": 1536,
+      "alpha": false,
+      "id": "s1",
+      "name": "大厅"
+    },
+    {
+      "src": "scene-02.webp",
       "width": 941,
       "height": 1672,
-      "alpha": false
+      "alpha": false,
+      "id": "s2",
+      "name": "书房"
     },
-    "scenes": [
-      {
-        "id": "s1",
-        "name": "大厅",
-        "src": "scene-01.webp",
-        "width": 1024,
-        "height": 1536,
-        "alpha": false
-      },
-      {
-        "id": "s2",
-        "name": "书房",
-        "src": "scene-02.webp",
-        "width": 941,
-        "height": 1672,
-        "alpha": false
-      },
-      {
-        "id": "s3",
-        "name": "地下室",
-        "src": "scene-03.webp",
-        "width": 1024,
-        "height": 1536,
-        "alpha": false
-      }
-    ],
-    "clues": [
-      {
-        "id": "burned-envelope",
-        "src": "clue-burned-envelope.webp",
-        "width": 512,
-        "height": 512,
-        "alpha": true
-      }
-    ]
-  }
+    {
+      "src": "scene-03.webp",
+      "width": 1024,
+      "height": 1536,
+      "alpha": false,
+      "id": "s3",
+      "name": "地下室"
+    }
+  ],
+  "characters": [
+    {
+      "src": "character-fu.webp",
+      "width": 768,
+      "height": 1024,
+      "alpha": true,
+      "id": "fu"
+    }
+  ],
+  "clues": [
+    {
+      "src": "clue-burned-envelope.webp",
+      "width": 512,
+      "height": 512,
+      "alpha": true,
+      "id": "k_fire"
+    }
+  ],
+  "missingCharacterIds": [
+    "lin",
+    "pei"
+  ],
+  "missingClueIds": [
+    "k_paint",
+    "k_clock",
+    "x_statue",
+    "k_glass",
+    "k_body",
+    "x_rug",
+    "x_desk",
+    "k_diary",
+    "k_safe",
+    "k_phone",
+    "k_book",
+    "x_shelf",
+    "k_letter",
+    "k_candle",
+    "k_crate",
+    "k_wall",
+    "k_foot",
+    "x_barrel",
+    "k_rope",
+    "x_lock"
+  ]
 }
