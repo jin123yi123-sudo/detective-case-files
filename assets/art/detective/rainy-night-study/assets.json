@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "caseId": "rainy-night-study",
+  "basePath": "/assets/art/detective/rainy-night-study",
+  "assets": {
+    "cover": {
+      "src": "cover.webp",
+      "kind": "cover",
+      "width": 1024,
+      "height": 1536,
+      "alpha": false
+    },
+    "scenes": [
+      { "id": "study", "src": "study.webp", "width": 1024, "height": 1280, "alpha": false },
+      { "id": "corridor", "src": "scene-02.webp", "width": 1024, "height": 1280, "alpha": false },
+      { "id": "window", "src": "scene-03.webp", "width": 1024, "height": 1280, "alpha": false },
+      { "id": "desk", "src": "desk-area.webp", "width": 1024, "height": 768, "alpha": false },
+      { "id": "drawer", "src": "desk-drawer.webp", "width": 1024, "height": 768, "alpha": false },
+      { "id": "rainy-window", "src": "rainy-window.webp", "width": 1024, "height": 768, "alpha": false },
+      { "id": "bookshelf", "src": "bookshelf.webp", "width": 1024, "height": 768, "alpha": false },
+      { "id": "stairs", "src": "stairs.webp", "width": 1024, "height": 768, "alpha": false }
+    ],
+    "characters": [
+      { "id": "suspect-01", "src": "suspect-01.webp", "width": 768, "height": 1024, "alpha": true, "pose": "default" },
+      { "id": "suspect-01-thinking", "characterId": "suspect-01", "src": "suspect-01-thinking.webp", "width": 512, "height": 768, "alpha": true, "pose": "thinking" },
+      { "id": "suspect-01-angry", "characterId": "suspect-01", "src": "suspect-01-angry.webp", "width": 512, "height": 768, "alpha": true, "pose": "angry" },
+      { "id": "suspect-01-cold", "characterId": "suspect-01", "src": "suspect-01-cold.webp", "width": 512, "height": 768, "alpha": true, "pose": "cold" },
+      { "id": "suspect-02", "src": "suspect-02.webp", "width": 768, "height": 1024, "alpha": true, "pose": "default" },
+      { "id": "suspect-02-smile", "characterId": "suspect-02", "src": "suspect-02-smile.webp", "width": 512, "height": 768, "alpha": true, "pose": "smile" },
+      { "id": "suspect-02-suspicious", "characterId": "suspect-02", "src": "suspect-02-suspicious.webp", "width": 512, "height": 768, "alpha": true, "pose": "suspicious" },
+      { "id": "suspect-02-sad", "characterId": "suspect-02", "src": "suspect-02-sad.webp", "width": 512, "height": 768, "alpha": true, "pose": "sad" },
+      { "id": "suspect-03", "src": "suspect-03.webp", "width": 768, "height": 1024, "alpha": true, "pose": "default" },
+      { "id": "suspect-03-thinking", "characterId": "suspect-03", "src": "suspect-03-thinking.webp", "width": 512, "height": 768, "alpha": true, "pose": "thinking" },
+      { "id": "suspect-03-surprised", "characterId": "suspect-03", "src": "suspect-03-surprised.webp", "width": 512, "height": 768, "alpha": true, "pose": "surprised" },
+      { "id": "suspect-03-serious", "characterId": "suspect-03", "src": "suspect-03-serious.webp", "width": 512, "height": 768, "alpha": true, "pose": "serious" }
+    ],
+    "ui": [
+      { "id": "case-card-01", "src": "case-card-01.webp", "width": 600, "height": 400, "alpha": false, "textMode": "runtime" },
+      { "id": "title-frame", "src": "title-frame.webp", "width": 800, "height": 300, "alpha": true, "textMode": "runtime" },
+      { "id": "clue-banner", "src": "clue-banner.webp", "width": 600, "height": 200, "alpha": true, "textMode": "runtime" },
+      { "id": "dialogue", "src": "dialogue.webp", "width": 800, "height": 300, "alpha": true, "textMode": "runtime" }
+    ],
+    "clues": [
+      { "id": "pocket-watch", "src": "pocket-watch.webp", "width": 512, "height": 512, "alpha": true },
+      { "id": "sealed-letter", "src": "sealed-letter.webp", "width": 512, "height": 512, "alpha": true },
+      { "id": "brass-key", "src": "brass-key.webp", "width": 512, "height": 512, "alpha": true },
+      { "id": "ink-bottle", "src": "ink-bottle.webp", "width": 512, "height": 512, "alpha": true },
+      { "id": "teacup", "src": "teacup.webp", "width": 512, "height": 512, "alpha": true },
+      { "id": "magnifying-glass", "src": "magnifying-glass.webp", "width": 512, "height": 512, "alpha": true },
+      { "id": "fishing-line", "src": "fishing-line.webp", "width": 512, "height": 512, "alpha": true },
+      { "id": "stopped-clock", "src": "stopped-clock.webp", "width": 512, "height": 512, "alpha": true },
+      { "id": "medicine", "src": "medicine.webp", "width": 512, "height": 512, "alpha": true },
+      { "id": "phone", "src": "phone.webp", "width": 512, "height": 512, "alpha": true },
+      { "id": "handkerchief", "src": "handkerchief.webp", "width": 512, "height": 512, "alpha": true }
+    ]
+  }
+}
