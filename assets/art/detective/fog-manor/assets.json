@@ -43,6 +43,20 @@
       "height": 1024,
       "alpha": true,
       "id": "fu"
+    },
+    {
+      "src": "character-lin.webp",
+      "width": 768,
+      "height": 1024,
+      "alpha": true,
+      "id": "lin"
+    },
+    {
+      "src": "character-pei.webp",
+      "width": 768,
+      "height": 1024,
+      "alpha": true,
+      "id": "pei"
     }
   ],
   "clues": [
@@ -54,10 +68,7 @@
       "id": "k_fire"
     }
   ],
-  "missingCharacterIds": [
-    "lin",
-    "pei"
-  ],
+  "missingCharacterIds": [],
   "missingClueIds": [
     "k_paint",
     "k_clock",

@@ -35,6 +35,20 @@
       "height": 1024,
       "alpha": true,
       "id": "shao"
+    },
+    {
+      "src": "character-k.webp",
+      "width": 768,
+      "height": 1024,
+      "alpha": true,
+      "id": "k"
+    },
+    {
+      "src": "character-hai.webp",
+      "width": 768,
+      "height": 1024,
+      "alpha": true,
+      "id": "hai"
     }
   ],
   "clues": [
@@ -46,10 +60,7 @@
       "id": "k_rope"
     }
   ],
-  "missingCharacterIds": [
-    "k",
-    "hai"
-  ],
+  "missingCharacterIds": [],
   "missingClueIds": [
     "x_con1",
     "x_con2",

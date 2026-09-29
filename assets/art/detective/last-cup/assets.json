@@ -35,6 +35,20 @@
       "height": 1024,
       "alpha": true,
       "id": "zhou"
+    },
+    {
+      "src": "character-may.webp",
+      "width": 768,
+      "height": 1024,
+      "alpha": true,
+      "id": "may"
+    },
+    {
+      "src": "character-doctor.webp",
+      "width": 768,
+      "height": 1024,
+      "alpha": true,
+      "id": "doctor"
     }
   ],
   "clues": [
@@ -46,10 +60,7 @@
       "id": "k_pen"
     }
   ],
-  "missingCharacterIds": [
-    "may",
-    "doctor"
-  ],
+  "missingCharacterIds": [],
   "missingClueIds": [
     "k_table",
     "k_cup1",

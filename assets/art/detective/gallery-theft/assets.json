@@ -35,6 +35,13 @@
       "height": 1024,
       "alpha": true,
       "id": "lin"
+    },
+    {
+      "src": "character-bao.webp",
+      "width": 768,
+      "height": 1024,
+      "alpha": true,
+      "id": "bao"
     }
   ],
   "clues": [
@@ -46,9 +53,7 @@
       "id": "k_frame"
     }
   ],
-  "missingCharacterIds": [
-    "bao"
-  ],
+  "missingCharacterIds": [],
   "missingClueIds": [
     "k_cam",
     "k_mon",

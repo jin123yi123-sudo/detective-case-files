@@ -43,6 +43,20 @@
       "height": 1024,
       "alpha": true,
       "id": "gu"
+    },
+    {
+      "src": "character-tuan.webp",
+      "width": 768,
+      "height": 1024,
+      "alpha": true,
+      "id": "tuan"
+    },
+    {
+      "src": "character-wu.webp",
+      "width": 768,
+      "height": 1024,
+      "alpha": true,
+      "id": "wu"
     }
   ],
   "clues": [
@@ -54,10 +68,7 @@
       "id": "k_knife"
     }
   ],
-  "missingCharacterIds": [
-    "tuan",
-    "wu"
-  ],
+  "missingCharacterIds": [],
   "missingClueIds": [
     "x_curtain",
     "k_light",
