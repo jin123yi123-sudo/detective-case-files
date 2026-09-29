@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "caseId": "c5",
+  "slug": "seventh-row",
+  "name": "第七排",
+  "basePath": "/assets/art/detective/seventh-row",
+  "status": "prepared-not-integrated",
+  "assets": {
+    "cover": {
+      "src": "cover.webp",
+      "width": 941,
+      "height": 1672,
+      "alpha": false
+    },
+    "scenes": [
+      {
+        "id": "s1",
+        "name": "后台与舞台",
+        "src": "scene-01.webp",
+        "width": 1145,
+        "height": 1374,
+        "alpha": false
+      },
+      {
+        "id": "s2",
+        "name": "化妆间",
+        "src": "scene-02.webp",
+        "width": 1145,
+        "height": 1374,
+        "alpha": false
+      },
+      {
+        "id": "s3",
+        "name": "观众席第七排",
+        "src": "scene-03.webp",
+        "width": 1024,
+        "height": 1536,
+        "alpha": false
+      }
+    ],
+    "clues": [
+      {
+        "id": "prop-knives",
+        "src": "clue-prop-knives.webp",
+        "width": 512,
+        "height": 512,
+        "alpha": true
+      }
+    ]
+  }
+}

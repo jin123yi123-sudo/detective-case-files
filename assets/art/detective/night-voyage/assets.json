@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "caseId": "c4",
+  "slug": "night-voyage",
+  "name": "码头夜航",
+  "basePath": "/assets/art/detective/night-voyage",
+  "status": "prepared-not-integrated",
+  "assets": {
+    "cover": {
+      "src": "cover.webp",
+      "width": 941,
+      "height": 1672,
+      "alpha": false
+    },
+    "scenes": [
+      {
+        "id": "s1",
+        "name": "三号泊位",
+        "src": "scene-01.webp",
+        "width": 1024,
+        "height": 1536,
+        "alpha": false
+      },
+      {
+        "id": "s2",
+        "name": "货运仓库",
+        "src": "scene-02.webp",
+        "width": 940,
+        "height": 1672,
+        "alpha": false
+      }
+    ],
+    "clues": [
+      {
+        "id": "cut-rope",
+        "src": "clue-cut-rope.webp",
+        "width": 512,
+        "height": 512,
+        "alpha": true
+      }
+    ]
+  }
+}

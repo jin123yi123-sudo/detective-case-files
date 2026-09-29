@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "caseId": "c6",
+  "slug": "fog-manor",
+  "name": "雾中庄园",
+  "basePath": "/assets/art/detective/fog-manor",
+  "status": "prepared-not-integrated",
+  "assets": {
+    "cover": {
+      "src": "cover.webp",
+      "width": 941,
+      "height": 1672,
+      "alpha": false
+    },
+    "scenes": [
+      {
+        "id": "s1",
+        "name": "大厅",
+        "src": "scene-01.webp",
+        "width": 1024,
+        "height": 1536,
+        "alpha": false
+      },
+      {
+        "id": "s2",
+        "name": "书房",
+        "src": "scene-02.webp",
+        "width": 941,
+        "height": 1672,
+        "alpha": false
+      },
+      {
+        "id": "s3",
+        "name": "地下室",
+        "src": "scene-03.webp",
+        "width": 1024,
+        "height": 1536,
+        "alpha": false
+      }
+    ],
+    "clues": [
+      {
+        "id": "burned-envelope",
+        "src": "clue-burned-envelope.webp",
+        "width": 512,
+        "height": 512,
+        "alpha": true
+      }
+    ]
+  }
+}

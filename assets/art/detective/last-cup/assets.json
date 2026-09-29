@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "caseId": "c3",
+  "slug": "last-cup",
+  "name": "最后一杯",
+  "basePath": "/assets/art/detective/last-cup",
+  "status": "prepared-not-integrated",
+  "assets": {
+    "cover": {
+      "src": "cover.webp",
+      "width": 941,
+      "height": 1672,
+      "alpha": false
+    },
+    "scenes": [
+      {
+        "id": "s1",
+        "name": "卡座",
+        "src": "scene-01.webp",
+        "width": 1145,
+        "height": 1374,
+        "alpha": false
+      },
+      {
+        "id": "s2",
+        "name": "后厨",
+        "src": "scene-02.webp",
+        "width": 1145,
+        "height": 1374,
+        "alpha": false
+      }
+    ],
+    "clues": [
+      {
+        "id": "epinephrine-pen",
+        "src": "clue-epinephrine-pen.webp",
+        "width": 512,
+        "height": 512,
+        "alpha": true
+      }
+    ]
+  }
+}
