@@ -75,10 +75,17 @@
       } else {
         const c = current, p = faceOf(c, it.who);
         who = p;
-        html = `<div class="dialog__who">
-            <div class="dialog__face">${Art.character(personFace(p, it.mood))}</div>
-            <div><div class="dialog__name">${esc(p.name)}</div><div class="dialog__role">${esc(p.role || '')}</div></div>
-          </div>
+        const img = portraitFor(c, it.who, it.mood);
+        const whoHtml = img
+          ? `<div class="dialog__stage">
+              <img class="dialog__portrait" src="${img}" alt="${esc(p.name)}">
+              <div><div class="dialog__name">${esc(p.name)}</div><div class="dialog__role">${esc(p.role || '')}</div></div>
+            </div>`
+          : `<div class="dialog__who">
+              <div class="dialog__face">${Art.character(personFace(p, it.mood))}</div>
+              <div><div class="dialog__name">${esc(p.name)}</div><div class="dialog__role">${esc(p.role || '')}</div></div>
+            </div>`;
+        html = `${whoHtml}
           <div class="dialog__text">${esc(it.text)}</div>
           <div class="modal__actions"><button class="btn btn--primary" data-act="next">继续</button></div>`;
       }
@@ -100,6 +107,12 @@
     if (mood) f.mood = mood;
     return f;
   }
+  function portraitFor(c, who, mood) {
+    const a = c && c.art, f = a && a.faces && a.faces[who];
+    if (!f) return null;
+    const file = (mood && f.poses && f.poses[mood]) || f.src;
+    return a.base + file;
+  }
 
   /* ---------------- 案件列表 ---------------- */
   let current = null, curScene = 0, hintId = null;
@@ -120,8 +133,11 @@
       const d = save.done[c.id];
       const el = document.createElement('div');
       el.className = 'case-card' + (ok ? '' : ' is-locked');
+      const thumb = (c.art && c.art.coverCard)
+        ? `<img src="${c.art.base}${c.art.coverCard}" alt="${esc(c.name)}">`
+        : Art.cover(c.cover, c.theme);
       el.innerHTML = `
-        <div class="case-card__thumb">${Art.cover(c.cover, c.theme)}</div>
+        <div class="case-card__thumb">${thumb}</div>
         <div class="case-card__body">
           <div class="case-card__no">${c.no}</div>
           <div class="case-card__name">${esc(c.name)}</div>
@@ -181,9 +197,11 @@
   function renderScene() {
     const sc = current.scenes[curScene];
     const found = foundOf(current.id);
+    const sceneArt = current.art && current.art.scenes && current.art.scenes[sc.id];
     const cfg = {
       theme: sc.theme, fx: sc.fx, floorY: sc.floorY,
-      props: sc.props.map(p => ({ id: p.id, t: p.t, x: p.x, y: p.y, s: p.s }))
+      bg: sceneArt && sceneArt.bg ? current.art.base + sceneArt.bg : null,
+      props: sc.props.map(p => ({ id: p.id, t: p.t, x: p.x, y: p.y, s: p.s, keep: p.keep }))
     };
     let svg = Art.scene(cfg);
     // 标记已发现 & 提示
@@ -223,7 +241,7 @@
       const pid = g.getAttribute('data-id');
       const prop = sc.props.find(p => p.id === pid);
       if (!prop || !prop.clue) return;
-      revealClue(prop.clue, prop.t);
+      revealClue(prop.clue, prop.t, prop.id);
     });
     const total = sc.props.filter(p => p.clue).length;
     const got = sc.props.filter(p => p.clue && found.indexOf(p.clue) >= 0).length;
@@ -231,15 +249,49 @@
     updateBadges();
   }
 
-  function revealClue(clueId, iconFallback) {
+  function closeupsFor(propId) {
+    const a = current.art;
+    if (!a || !a.scenes) return null;
+    let cu = null;
+    Object.keys(a.scenes).forEach(sid => {
+      const m = a.scenes[sid].closeups;
+      if (m && m[propId]) cu = m[propId];
+    });
+    return cu ? a.base + cu : null;
+  }
+  function clueImg(clueId) {
+    const a = current.art;
+    if (a && a.clueIcons && a.clueIcons[clueId]) return a.base + a.clueIcons[clueId];
+    return null;
+  }
+  function revealClue(clueId, iconFallback, propId) {
     const c = current.clues[clueId];
     if (!c) { toast('这里什么都没有。'); return; }
     const found = foundOf(current.id);
     const isNew = found.indexOf(clueId) < 0;
+    const cu = isNew ? closeupsFor(propId) : null;
+    if (cu) {
+      openModal(`<div class="inspect"><img src="${cu}" alt=""></div>
+        <p class="inspect-hint">仔细看看这里……</p>
+        <div class="modal__actions"><button class="btn btn--primary" data-act="go">检查</button></div>`, {
+        actions: { go: () => showClueCard(clueId, iconFallback, true) }
+      });
+      return;
+    }
+    showClueCard(clueId, iconFallback, isNew);
+  }
+  function showClueCard(clueId, iconFallback, isNew) {
+    const c = current.clues[clueId];
+    if (!c) { closeModal(); return; }
+    const found = foundOf(current.id);
     if (isNew) { found.push(clueId); persist(); }
     const icon = c.icon || iconFallback;
+    const img = clueImg(clueId);
+    const artHtml = img
+      ? `<div class="clue-modal__art clue-modal__art--img"><img src="${img}" alt="${esc(c.name)}"></div>`
+      : `<div class="clue-modal__art">${Art.propSvg(icon, { bg: '#0c0f15', shadow: true })}</div>`;
     const html = `
-      <div class="clue-modal__art">${Art.propSvg(icon, { bg: '#0c0f15', shadow: true })}</div>
+      ${artHtml}
       <h3 class="clue-modal__name">${esc(c.name)}</h3>
       <div class="clue-modal__text">${esc(c.text)}</div>
       ${c.quote ? `<div class="clue-modal__quote">${esc(c.quote)}</div>` : ''}
@@ -270,18 +322,26 @@
     found.forEach(id => {
       const c = current.clues[id];
       if (!c) return;
+      const img = clueImg(id);
+      const thumb = img
+        ? `<img src="${img}" alt="${esc(c.name)}">`
+        : Art.propSvg(c.icon, { bg: '#0c0f15' });
       const el = document.createElement('div');
       el.className = 'clue-card';
       el.innerHTML = `
-        <div class="clue-card__thumb">${Art.propSvg(c.icon, { bg: '#0c0f15' })}</div>
+        <div class="clue-card__thumb">${thumb}</div>
         <div class="clue-card__body">
           <div class="clue-card__name">${esc(c.name)}</div>
           <div class="clue-card__text">${esc(c.text.slice(0, 42))}…</div>
           ${c.key ? '<span class="clue-card__key">关键线索</span>' : ''}
         </div>`;
       el.addEventListener('click', () => {
+        const big = clueImg(id);
+        const artHtml = big
+          ? `<div class="clue-modal__art clue-modal__art--img"><img src="${big}" alt="${esc(c.name)}"></div>`
+          : `<div class="clue-modal__art">${Art.propSvg(c.icon, { bg: '#0c0f15', shadow: true })}</div>`;
         openModal(`
-          <div class="clue-modal__art">${Art.propSvg(c.icon, { bg: '#0c0f15', shadow: true })}</div>
+          ${artHtml}
           <h3 class="clue-modal__name">${esc(c.name)}</h3>
           <div class="clue-modal__text">${esc(c.text)}</div>
           ${c.quote ? `<div class="clue-modal__quote">${esc(c.quote)}</div>` : ''}
@@ -512,6 +572,9 @@
   $$('.tab').forEach(t => t.addEventListener('click', () => switchPane(t.dataset.pane)));
 
   /* ---------------- 启动 ---------------- */
-  $('#intro-art').innerHTML = Art.intro();
+  const c1 = CASES[0];
+  $('#intro-art').innerHTML = (c1.art && c1.art.coverCard)
+    ? `<img src="${c1.art.base}${c1.art.coverCard}" alt=" detective">`
+    : Art.intro();
   renderCases();
 })();

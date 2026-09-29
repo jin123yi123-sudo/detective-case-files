@@ -10,9 +10,28 @@ const CASES = [
     id: 'c1', no: 'CASE 01', name: '雨夜书房', sub: '一杯凉透的茶',
     theme: 'room', difficulty: 1,
     cover: ['desk', 'body', 'cup', 'bookshelf'],
+    art: {
+      base: 'assets/art/detective/rainy-night-study/',
+      coverCard: 'case-card-01.webp',
+      scenes: {
+        s1: { bg: 'study.webp', closeups: { p2: 'desk-area.webp', p5: 'bookshelf.webp', p6: 'rainy-window.webp', p8: 'bookshelf.webp' } },
+        s2: { bg: 'scene-02.webp', closeups: { q1: 'stairs.webp' } }
+      },
+      clueIcons: {
+        k_cup: 'teacup.webp', k_clock: 'stopped-clock.webp', k_door: 'fishing-line.webp',
+        k_phone: 'phone.webp', k_letter: 'sealed-letter.webp', k_desk: 'desk-drawer.webp',
+        k_window: 'rainy-window.webp', x_watch: 'pocket-watch.webp', x_keys: 'brass-key.webp',
+        x_hank: 'handkerchief.webp', x_shelf: 'bookshelf.webp'
+      },
+      faces: {
+        chen: { src: 'suspect-02.webp', poses: { sad: 'suspect-02-sad.webp', angry: 'suspect-02-suspicious.webp', fear: 'suspect-02-suspicious.webp', smile: 'suspect-02-smile.webp' } },
+        fu: { src: 'suspect-01.webp', poses: { fear: 'suspect-01-cold.webp', angry: 'suspect-01-angry.webp', thinking: 'suspect-01-thinking.webp' } },
+        doctor: { src: 'suspect-03.webp', poses: { fear: 'suspect-03-surprised.webp', thinking: 'suspect-03-thinking.webp', angry: 'suspect-03-serious.webp' } }
+      }
+    },
     desc: '古董商沈仲年反锁在书房中身亡，桌上是一杯喝了一半的茶。',
     cast: {
-      chen: { name: '陈默', role: '死者的侄子', face: { hairStyle: 'short', hair: '#2b2118', cloth: '#2f3a4a', acc: 'none', mood: 'sad' } },
+      chen: { name: '陈默', role: '死者的侄女', face: { hairStyle: 'long', hair: '#2b2118', cloth: '#2f3a4a', acc: 'none', mood: 'sad' } },
       fu: { name: '福伯', role: '老管家', face: { hairStyle: 'bald', hair: '#8a8a8a', cloth: '#3a3444', acc: 'collar', mood: 'calm' } },
       doctor: { name: '法医', role: '市立医院', face: { hairStyle: 'bun', hair: '#3b2b22', cloth: '#e6e6e6', acc: 'glasses', skin: '#f3d3b0', mood: 'calm' } }
     },
@@ -25,27 +44,30 @@ const CASES = [
       {
         id: 's1', name: '书房', theme: 'room', fx: 'rain', floorY: 430,
         props: [
-          { id: 'p1', t: 'body', x: 250, y: 440, s: 1.9, clue: 'k_body' },
-          { id: 'p2', t: 'desk', x: 210, y: 400, s: 1.5, clue: 'k_desk' },
-          { id: 'p3', t: 'cup', x: 330, y: 372, s: 0.5, clue: 'k_cup' },
-          { id: 'p4', t: 'letter', x: 262, y: 392, s: 0.44, clue: 'k_letter' },
-          { id: 'p5', t: 'bookshelf', x: 30, y: 110, s: 1.6, clue: 'x_shelf' },
-          { id: 'p6', t: 'window', x: 250, y: 96, s: 1.3, clue: 'k_window' },
-          { id: 'p7', t: 'clock', x: 452, y: 118, s: 0.95, clue: 'k_clock' },
-          { id: 'p8', t: 'safe', x: 448, y: 268, s: 0.72, clue: 'x_safe' },
-          { id: 'p9', t: 'plant', x: 500, y: 452, s: 1.1, clue: 'x_plant' },
-          { id: 'p10', t: 'rug', x: 150, y: 596, s: 1.9, clue: 'x_rug' }
+          { id: 'p2', t: 'desk', x: 150, y: 390, s: 2.1, clue: 'k_desk' },
+          { id: 'p1', t: 'body', x: 320, y: 335, s: 1.0, clue: 'k_body', keep: true },
+          { id: 'p3', t: 'cup', x: 160, y: 392, s: 0.42, clue: 'k_cup' },
+          { id: 'p4', t: 'letter', x: 252, y: 418, s: 0.45, clue: 'k_letter' },
+          { id: 'p7', t: 'clock', x: 148, y: 352, s: 0.48, clue: 'k_clock' },
+          { id: 'p11', t: 'watch', x: 300, y: 440, s: 0.42, clue: 'x_watch' },
+          { id: 'p5', t: 'bookshelf', x: 15, y: 75, s: 1.45, clue: 'x_shelf' },
+          { id: 'p6', t: 'window', x: 425, y: 85, s: 1.25, clue: 'k_window' },
+          { id: 'p8', t: 'safe', x: 165, y: 215, s: 0.65, clue: 'x_safe' },
+          { id: 'p9', t: 'plant', x: 495, y: 245, s: 0.85, clue: 'x_plant' },
+          { id: 'p10', t: 'rug', x: 320, y: 580, s: 1.6, clue: 'x_rug' }
         ]
       },
       {
         id: 's2', name: '门厅与走廊', theme: 'room', fx: 'rain', floorY: 420,
         props: [
-          { id: 'q1', t: 'door', x: 240, y: 60, s: 2.1, clue: 'k_door' },
-          { id: 'q2', t: 'umbrella', x: 60, y: 300, s: 0.9, clue: 'k_umb' },
-          { id: 'q3', t: 'shoe', x: 300, y: 470, s: 1.0, clue: 'x_shoe' },
-          { id: 'q4', t: 'phone', x: 452, y: 452, s: 0.8, clue: 'k_phone' },
-          { id: 'q5', t: 'footprint', x: 190, y: 580, s: 0.7, clue: 'x_foot' },
-          { id: 'q6', t: 'mirror', x: 30, y: 90, s: 0.85, clue: 'x_mirror' }
+          { id: 'q1', t: 'door', x: 95, y: 190, s: 1.4, clue: 'k_door' },
+          { id: 'q2', t: 'umbrella', x: 215, y: 395, s: 0.75, clue: 'k_umb' },
+          { id: 'q7', t: 'key', x: 200, y: 272, s: 0.6, clue: 'x_keys' },
+          { id: 'q4', t: 'phone', x: 42, y: 415, s: 0.55, clue: 'k_phone' },
+          { id: 'q8', t: 'glove', x: 100, y: 460, s: 0.5, clue: 'x_hank' },
+          { id: 'q3', t: 'shoe', x: 175, y: 505, s: 0.65, clue: 'x_shoe' },
+          { id: 'q5', t: 'footprint', x: 330, y: 630, s: 0.85, clue: 'x_foot' },
+          { id: 'q6', t: 'mirror', x: 5, y: 70, s: 0.75, clue: 'x_mirror' }
         ]
       }
     ],
@@ -61,11 +83,14 @@ const CASES = [
       x_plant: { name: '龟背竹', icon: 'plant', key: false, text: '叶面上落了一层灰，唯独朝向书桌那一侧被人擦过。有人站在那里看了很久。' },
       x_rug: { name: '地毯', icon: 'rug', key: false, text: '地毯边缘翘起一角，下面压着一小截暗黄色的线——尼龙鱼线，被拉断的。' },
       k_door: { name: '门与门缝', icon: 'door', key: true, text: '门锁是老式旋钮锁，从里面旋上即可。门缝底部夹着一截不到两厘米的尼龙鱼线，另一头垂在门内地毯边上——把线一抽，旋钮就会跟着转到"锁"的位置。', quote: '人早走了，门是后来才锁上的。' },
-      k_umb: { name: '门厅的伞', icon: 'umbrella', key: true, text: '伞架上只有一把黑伞，伞骨内侧是湿的，伞面却已经干了大半——它在室内撑开过至少两个小时。伞柄上刻着"陈"字。而陈默说他九点就离开了。' },
+      k_umb: { name: '门厅的伞', icon: 'umbrella', key: true, text: '伞架上只有一把黑伞，伞骨内侧是湿的，伞面却已经干了大半——它在室内撑开过至少两个小时。伞柄上刻着"陈"字。而陈默说她九点就离开了。' },
       x_shoe: { name: '玄关的鞋', icon: 'shoe', key: false, text: '死者的拖鞋在，陈默常穿的那双皮鞋不在鞋柜里。鞋柜里多了双沾泥的胶底鞋，不是这个家的尺码。' },
       k_phone: { name: '遗落的手机', icon: 'phone', key: false, text: '手机落在门厅柜上，20:55 有一条发给陈默的消息：「你来了就进来，门没锁。」21:40 之后没有任何操作记录——那时它已经不在沈仲年手里了。' },
       x_foot: { name: '地板上的水痕', icon: 'footprint', key: false, text: '从门口到楼梯有一串半干的脚印，鞋码 42，来回两趟。第二趟的步距明显更大——他在跑。' },
-      x_mirror: { name: '走廊镜子', icon: 'mirror', key: false, text: '镜面被人用袖子擦过，边缘还留着一点水痕。照镜子的人，不太想让人看见自己在擦什么。' }
+      x_mirror: { name: '走廊的画框', icon: 'frame', key: false, text: '走廊那排小画框的玻璃被人用袖子擦过，边缘还留着一点水痕。照镜子的人，不太想让人看见自己在擦什么。' },
+      x_watch: { name: '桌角的怀表', icon: 'watch', key: false, text: '黄铜怀表搁在书桌角的丝绒垫上，还在走。沈仲年的表从不离身——把它从主人身上摘下来、又放回原处的人，翻动过尸体。' },
+      x_keys: { name: '玄关钥匙板', icon: 'key', key: false, text: '门厅墙上的钥匙板有四枚挂钩，只挂着三把钥匙。书屋的那把不在——它随主人一起，被反锁进了书房。' },
+      x_hank: { name: '蕾丝手帕', icon: 'glove', key: false, text: '边柜上搭着一条古董蕾丝手帕，角上绣着"福"字，帕面有一点淡淡的茶渍。管家收拾茶具时，用它擦过溅出来的茶水。' }
     },
     questions: [
       {
@@ -92,15 +117,15 @@ const CASES = [
         sub: '',
         options: [
           { t: '管家福伯', ok: false, r: '福伯的胶底鞋尺码不符，且他送茶的时间在 21:00 之前，与毒发时间对不上。' },
-          { t: '侄子陈默', ok: true, r: '正确。伞柄上的"陈"字、伞在室内撑开两小时、手机里那条 20:55 的短信，都说明他进屋后一直待到 21:40 之后。' },
+          { t: '侄女陈默', ok: true, r: '正确。伞柄上的"陈"字、伞在室内撑开两小时、手机里那条 20:55 的短信，都说明她进屋后一直待到 21:40 之后。' },
           { t: '博物馆的某位负责人', ok: false, r: '遗嘱里博物馆是受益方，但现场没有任何外人进入的痕迹。' }
         ],
-        result: '他改写遗嘱无望，于是先下毒、再布置密室、最后拨停座钟——唯独忘了自己那把还在滴水的伞。'
+        result: '她改写遗嘱无望，于是先下毒、再布置密室、最后拨停座钟——唯独忘了自己那把还在滴水的伞。'
       }
     ],
     truth: {
       title: '真相：凉透的那杯茶',
-      text: '陈默在 20:55 收到叔叔的短信进门，亲手把放了毒的茶端到了书桌上。\n沈仲年喝下后十几分钟便没了气息，那时大约是 21:10。\n陈默没有立刻走。他打开暗格取走了那件最值钱的瓷器，翻看了遗嘱，然后在 21:40 拨停座钟，用鱼线从门外把旋钮拉到"锁"的位置，做出一副密室的样子。\n他以为自己算准了一切。可他忘了，雨夜里唯一的那把伞，还在门厅里替他站着。',
+      text: '陈默在 20:55 收到叔叔的短信进门，亲手把放了毒的茶端到了书桌上。\n沈仲年喝下后十几分钟便没了气息，那时大约是 21:10。\n陈默没有立刻走。她打开暗格取走了那件最值钱的瓷器，翻看了遗嘱，然后在 21:40 拨停座钟，用鱼线从门外把旋钮拉到"锁"的位置，做出一副密室的样子。\n她以为自己算准了一切。可她忘了，雨夜里唯一的那把伞，还在门厅里替她站着。',
       ending: [
         { type: 'dialog', who: 'chen', mood: 'fear', text: '……我只是想让他改遗嘱。他说他要去警局，说"事情全想起来了"。' },
         { type: 'dialog', who: 'DET', mood: 'calm', text: '二十年前那批货的事，你叔叔一直记着。他不是要告你，他是想给你一个自己开口的机会。' },

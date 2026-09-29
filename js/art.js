@@ -530,6 +530,7 @@ ${opt.shadow ? `<ellipse cx="50" cy="94" rx="34" ry="5" fill="#000" opacity=".28
   function scene(cfg) {
     const t = THEME[cfg.theme] || THEME.room;
     const floorY = cfg.floorY || 430;
+    const imgMode = !!cfg.bg;
     let s = `<svg viewBox="0 0 600 750" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
 <defs>
   <linearGradient id="gw" x1="0" y1="0" x2="0" y2="1">
@@ -545,8 +546,8 @@ ${opt.shadow ? `<ellipse cx="50" cy="94" rx="34" ry="5" fill="#000" opacity=".28
 <rect width="600" height="${floorY}" fill="url(#gw)"/>
 <rect y="${floorY}" width="600" height="${750 - floorY}" fill="url(#gf)"/>
 <rect y="${floorY - 6}" width="600" height="8" fill="${t.line}" opacity=".55"/>
-<rect width="600" height="750" fill="url(#gl)"/>
-${fx(cfg.fx, floorY)}
+${imgMode ? `<image href="${cfg.bg}" x="0" y="0" width="600" height="750" preserveAspectRatio="xMidYMid meet"/>` : `<rect width="600" height="750" fill="url(#gl)"/>
+${fx(cfg.fx, floorY)}`}
 `;
     (cfg.props || []).forEach(p => {
       const sc = p.s == null ? 1 : p.s;
@@ -554,10 +555,13 @@ ${fx(cfg.fx, floorY)}
       const isWall = WALL_PROPS.has(type);
       const fn = P[type] || P.card;
       const w = 100 * sc, h = 100 * sc;
-      const shadow = !isWall ? `<ellipse cx="${p.x + w / 2}" cy="${p.y + h * 0.93}" rx="${w * 0.36}" ry="${h * 0.05}" fill="#000" opacity=".3"/>` : '';
-      s += `<g class="hotspot" data-id="${p.id}" transform="translate(${p.x} ${p.y}) scale(${sc})">
+      const drawBody = !imgMode || p.keep;
+      const shadow = drawBody && !isWall ? `<ellipse cx="${p.x + w / 2}" cy="${p.y + h * 0.93}" rx="${w * 0.36}" ry="${h * 0.05}" fill="#000" opacity=".3"/>` : '';
+      const pulse = imgMode ? `<circle class="hs-pulse" cx="50" cy="50" r="${(34 / sc).toFixed(1)}"/>` : '';
+      s += `<g class="hotspot${imgMode ? ' hs-img' : ''}" data-id="${p.id}" transform="translate(${p.x} ${p.y}) scale(${sc})">
   ${shadow}
-  <g class="hs-body">${fn()}</g>
+  ${drawBody ? `<g class="hs-body">${fn()}</g>` : ''}
+  ${pulse}
   <rect class="hs-hit" x="0" y="0" width="100" height="100"/>
 </g>
 `;
